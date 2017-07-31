@@ -61,7 +61,7 @@ angular.module('seriesList', []).controller("seriesController", function($scope,
 		  var s = converter(serie);
 	      $http({
 	          method: 'DELETE',
-	          url: 'http://localhost:8080/user/removerPerfil/' 
+	          url: 'https://controleseries.herokuapp.com/user/removerPerfil/' 
 	            + $scope.userLogado.id + "/" + s.imdbID,
 	        }).then(function (response) {
 	          });
@@ -70,7 +70,7 @@ angular.module('seriesList', []).controller("seriesController", function($scope,
 	    $scope.putInWatchList = function(serie){
 	      $http({
 	          method: 'POST',
-	          url: 'http://localhost:8080/user/watchList/' + $scope.userLogado.id,
+	          url: 'https://controleseries.herokuapp.com/user/watchList/' + $scope.userLogado.id,
 	          data: serie
 	        }).then(function(response) {
 	          });
@@ -79,7 +79,7 @@ angular.module('seriesList', []).controller("seriesController", function($scope,
 	    $scope.putInProfile = function(serie){
 	      $http({
 	            method: 'POST',
-	            url: 'http://localhost:8080/user/perfil/' + $scope.userLogado.id,
+	            url: 'https://controleseries.herokuapp.com/user/perfil/' + $scope.userLogado.id,
 	            data: serie
 	          }).then(function successCallback(response) {
 	            }, function errorCallback(response) {
@@ -90,7 +90,7 @@ angular.module('seriesList', []).controller("seriesController", function($scope,
 	    $scope.cadastro = function(user){
 	      $http({
 	          method: 'POST',
-	          url: 'http://localhost:8080/users',
+	          url: 'https://controleseries.herokuapp.com/users',
 	          data: user  
 	        }).then(function(response) {
 	          alert(user.nome + " cadastrado com sucesso.");
@@ -101,7 +101,7 @@ angular.module('seriesList', []).controller("seriesController", function($scope,
 	    $scope.login = function(user){
 	      $http({
 	            method: 'POST',
-	            url: 'http://localhost:8080/users/login',
+	            url: 'https://controleseries.herokuapp.com/users/login',
 	            data: user 
 	          }).then(function(response) {
 	            if(response.data.nome == null){
